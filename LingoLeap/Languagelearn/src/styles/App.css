@@ -1,0 +1,100 @@
+/* General Body Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Heading Styles */
+h1 {
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Auth Page Styles */
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.auth-page form {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Input Fields */
+.auth-page input {
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.auth-page input:focus {
+  border-color: #4caf50;
+}
+
+/* Button Styles */
+.auth-page button {
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-page button:hover {
+  background-color: #45a049;
+}
+
+/* Paragraph Styles */
+.auth-page p {
+  margin-top: 15px;
+  color: #555;
+  cursor: pointer;
+  text-align: center;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.auth-page p:hover {
+  color: #4caf50;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .auth-page form {
+    padding: 20px;
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .auth-page input,
+  .auth-page button {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,342 @@
+================================================================================
+                  DRUGGUARD SYSTEM - UNIFIED FLOWCHART
+================================================================================
+
+
+                                  [START]
+                                     |
+                                     v
+                            +------------------+
+                            |  Landing Page    |
+                            |  (Welcome Page)  |
+                            +------------------+
+                                     |
+                                     v
+                          +---------------------+
+                          | Select User Role    |
+                          +---------------------+
+                                     |
+        +----------------------------+-----------------------------+
+        |                            |                             |
+        v                            v                             v
++---------------+            +---------------+              +---------------+
+| Drug          |            | Wholesaler    |              | Retailer      |
+| Inspector     |            |               |              |               |
++---------------+            +---------------+              +---------------+
+        |                            |                             |
+        v                            v                             v
++---------------+            +---------------+              +---------------+
+|               |            |               |              |               |
+| Login         |            | Login         |              | Login         |
+| (Inspector)   |            | (Wholesaler)  |              | (Retailer)    |
+|               |            |               |              |               |
++---------------+            +---------------+              +---------------+
+        |                            |                             |
+        v                            v                             v
++---------------+            +---------------+              +---------------+
+| Credentials   |            | Credentials   |              | Credentials   |
+| Validation    |            | Validation    |              | Validation    |
++---------------+            +---------------+              +---------------+
+        |                            |                             |
+   [Invalid?]----+              [Invalid?]----+              [Invalid?]----+
+        |        |                   |        |                   |        |
+        v        |                   v        |                   v        |
+    [Valid]      |               [Valid]      |               [Valid]      |
+        |        |                   |        |                   |        |
+        |        +-->[Error]         |        +-->[Error]         |        +-->[Error]
+        |               |            |               |            |               |
+        |               +--[Retry]   |               +--[Retry]   |               +--[Retry]
+        |                            |                            |
+        v                            v                            v
++---------------+            +---------------+              +---------------+
+| Set Role:     |            | Set Role:     |              | Set Role:     |
+| "inspector"   |            | "wholesaler"  |              | "retailer"    |
++---------------+            +---------------+              +---------------+
+        |                            |                             |
+        v                            v                             v
++---------------+            +---------------+              +---------------+
+| Load Navbar   |            | Load Navbar   |              | Load Navbar   |
+| & Sidebar     |            | & Sidebar     |              | & Sidebar     |
++---------------+            +---------------+              +---------------+
+        |                            |                             |
+        v                            v                             v
++---------------------+      +---------------------+        +---------------------+
+| INSPECTOR DASHBOARD |      | WHOLESALER DASHBOARD|        | RETAILER DASHBOARD  |
++---------------------+      +---------------------+        +---------------------+
+        |                            |                             |
+        |                            |                             |
+   +----+----+                  +----+----+                   +----+----+
+   |    |    |                  |    |    |                   |    |    |
+   v    v    v                  v    v    v                   v    v    v
++------+ +------+          +------+ +------+             +------+ +------+
+|Create| |Update|          | Sell | |Stock |             |Purch-| |Pend- |
+|Licen-| | Shop |          | to   | |Manag-|             |ase   | |ing   |
+|se    | |Detail|          |Retail| |ement |             |from  | |Stock |
++------+ +------+          +------+ +------+             |Whole-| +------+
+   |         |                 |         |               |saler |     |
+   |         |                 |         |               +------+     |
+   v         v                 v         v                   |         v
++------+ +------+          +------+ +------+             +------+ +------+
+|View  | |View  |          |Sales | |Return|             |Approve| |Sell |
+|Whole-| |Retail|          |Hist- | |Requ- |             |Stock | |to   |
+|saler | |er    |          |ory   | |ests  |             +------+ |Cust-|
+|Sales | |Purch.|          +------+ +------+                 |     |omer |
++------+ +------+              |         |                   |     +------+
+                               v         v                   v         |
+                          +------+ +------+             +------+       |
+                          |Pend- | |Profi-|             |Return|       |
+                          |ing   | |le    |             |Produ-|       |
+                          |Deliv.| |Mgmt  |             |ct    |       |
+                          +------+ +------+             +------+       |
+                                                            |           |
+                                                            v           v
+                                                        +------+ +------+
+                                                        |Purch.| |Sales |
+                                                        |Hist- | |Hist- |
+                                                        |ory   | |ory   |
+                                                        +------+ +------+
+                                                            |           |
+                                                            v           v
+                                                        +------+ +------+
+                                                        |Profi-| |View  |
+                                                        |le    | |Acct. |
+                                                        |Mgmt  | |      |
+                                                        +------+ +------+
+
+        |                            |                             |
+        +----------------------------+-----------------------------+
+                                     |
+                                     v
+                            +------------------+
+                            | Higher Authority |
+                            |      Login       |
+                            +------------------+
+                                     |
+                                     v
+                            +------------------+
+                            |   Credentials    |
+                            |   Validation     |
+                            +------------------+
+                                     |
+                                [Invalid?]----+
+                                     |        |
+                                     v        |
+                                 [Valid]      |
+                                     |        +-->[Error]
+                                     v               |
+                            +------------------+     |
+                            | Set Role:        |     +--[Retry]
+                            | "authority"      |
+                            +------------------+
+                                     |
+                                     v
+                            +------------------+
+                            | Load Navbar &    |
+                            |     Sidebar      |
+                            +------------------+
+                                     |
+                                     v
+                         +------------------------+
+                         | AUTHORITY DASHBOARD    |
+                         | (Monitoring & Control) |
+                         +------------------------+
+                                     |
+                         +-----------+-----------+
+                         |           |           |
+                         v           v           v
+                    +--------+ +--------+ +-----------+
+                    | View   | | View   | | Stock     |
+                    | Whole- | | Retail-| | Reports & |
+                    | saler  | | er     | | Analytics |
+                    | Sales  | | Purch. | +-----------+
+                    +--------+ +--------+
+
+
+================================================================================
+                    BUSINESS PROCESS FLOW (SUPPLY CHAIN)
+================================================================================
+
+                              [Drug Inspector]
+                                     |
+                                     | 1. Creates & Approves License
+                                     v
+                        +-------------------------+
+                        | Wholesaler Registration |
+                        |   (Receives License)    |
+                        +-------------------------+
+                                     |
+                                     | 2. Manages Stock/Inventory
+                                     v
+                         +-----------------------+
+                         | Wholesaler Stock      |
+                         | Management System     |
+                         +-----------------------+
+                                     |
+                                     | 3. Creates Sales Record
+                                     v
+                         +-----------------------+
+                         | Retailer Places Order |
+                         +-----------------------+
+                                     |
+                                     | 4. Order Status: Pending
+                                     v
+                         +-----------------------+
+                         | Wholesaler Processes  |
+                         |     Order             |
+                         +-----------------------+
+                                     |
+                         +-----------+-----------+
+                         |                       |
+                    [Accept]                [Reject/Issue]
+                         |                       |
+                         v                       v
+              +-----------------+      +------------------+
+              | Pending         |      | Return Request   |
+              | Delivery        |      | Processed        |
+              +-----------------+      +------------------+
+                         |                       |
+                         | 5. Ships Product      +-----> [Loop Back]
+                         v
+              +-----------------+
+              | Retailer        |
+              | Receives Stock  |
+              +-----------------+
+                         |
+                         | 6. Status: Pending Stock
+                         v
+              +-----------------+
+              | Retailer        |
+              | Inspects        |
+              +-----------------+
+                         |
+              +----------+----------+
+              |                     |
+         [Approve]              [Return]
+              |                     |
+              v                     v
+     +-----------------+   +------------------+
+     | Stock Approved  |   | Return to        |
+     | Add to Inventory|   | Wholesaler       |
+     +-----------------+   +------------------+
+              |
+              | 7. Available for Sale
+              v
+     +-----------------+
+     | Customer Makes  |
+     | Purchase        |
+     +-----------------+
+              |
+              | 8. Retailer Sells to Customer
+              v
+     +-----------------+
+     | Transaction     |
+     | Complete        |
+     +-----------------+
+              |
+              | 9. Records Updated
+              v
+     +-----------------+
+     | Sales History   |
+     | Updated         |
+     +-----------------+
+              |
+              +----------------+
+                               |
+                               v
+                  +-------------------------+
+                  | Higher Authority        |
+                  | Monitors Transactions   |
+                  +-------------------------+
+                               |
+              +----------------+----------------+
+              |                |                |
+              v                v                v
+      +------------+   +------------+   +------------+
+      | Generate   |   | View All   |   | Stock      |
+      | Reports    |   | Sales &    |   | Analytics  |
+      |            |   | Purchases  |   |            |
+      +------------+   +------------+   +------------+
+
+
+================================================================================
+                         USER SESSION FLOW
+================================================================================
+
+[User Accesses Application]
+           |
+           v
+[Landing Page with Role Selection]
+           |
+           +---> Inspector ----+
+           |                   |
+           +---> Wholesaler ---+
+           |                   +---> [Navigate to Login Page]
+           +---> Retailer -----+          (with role parameter)
+           |                   |
+           +---> Authority ----+
+                               |
+                               v
+                    [Login Form Rendered]
+                    (Username & Password)
+                               |
+                               v
+                    [Submit Credentials]
+                               |
+                               v
+                    [Frontend Validation]
+                               |
+                    +----------+----------+
+                    |                     |
+                [Valid]               [Invalid]
+                    |                     |
+                    v                     v
+            [Call onLogin()]      [Display Error]
+            with user role               |
+                    |                    |
+                    v                    +---> [User Re-enters]
+            [Set userRole state]
+            in App Component
+                    |
+                    v
+            [Conditional Rendering]
+            - Navbar appears
+            - Sidebar appears
+                    |
+                    v
+            [Navigate to Dashboard]
+            (based on role)
+                    |
+                    +------------------+
+                    |                  |
+                    v                  v
+            [Access Protected    [Role-based
+             Routes]              Features]
+                    |                  |
+                    |                  |
+                    v                  v
+            [Perform Actions]  [View Data]
+                    |                  |
+                    +--------+---------+
+                             |
+                             v
+                    [User Clicks Logout]
+                             |
+                             v
+                    [onLogout() Called]
+                             |
+                             v
+                    [userRole set to null]
+                             |
+                             v
+                    [Navbar & Sidebar Hidden]
+                             |
+                             v
+                    [Redirect to Landing]
+                             |
+                             v
+                          [END]
+
+
+================================================================================
+                         END OF FLOWCHART
+================================================================================

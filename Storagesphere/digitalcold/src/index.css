@@ -1,0 +1,103 @@
+@import "tailwindcss/base.css";
+@import "tailwindcss/components.css";
+@import "tailwindcss/utilities.css";
+
+html,
+body,
+#root {
+	min-height: 100vh;
+	background-color: #0f172a;
+	color: #f1f5f9;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	margin: 0;
+	font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	background-image: radial-gradient(circle at top right, rgba(6, 182, 212, 0.08), transparent 40%);
+}
+
+.glass-panel {
+	border-radius: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(16px);
+	box-shadow: 0 10px 30px rgba(2, 6, 23, 0.35);
+}
+
+.neo-panel {
+	border-radius: 1rem;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background-image: linear-gradient(160deg, rgba(15, 23, 42, 0.75) 0%, rgba(17, 24, 39, 0.95) 60%, rgba(30, 64, 175, 0.22) 100%);
+	backdrop-filter: blur(16px);
+	box-shadow: 0 10px 30px rgba(2, 6, 23, 0.35);
+}
+
+.hero-orb {
+	position: absolute;
+	border-radius: 9999px;
+	filter: blur(64px);
+}
+
+.gradient-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.75rem;
+	background-image: linear-gradient(135deg, #1e40af 0%, #06b6d4 100%);
+	padding: 0.5rem 1rem;
+	font-weight: 500;
+	color: #ffffff;
+	transition: all 300ms;
+}
+
+.gradient-btn:hover {
+	transform: scale(1.02);
+	box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
+
+.shimmer-text {
+	background-image: linear-gradient(120deg, #93c5fd 20%, #67e8f9 45%, #d8b4fe 55%, #93c5fd 80%);
+	background-size: 200% auto;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+@layer components {
+  .neo-panel {
+    @apply rounded-2xl border border-white/5 bg-slate-900/40 backdrop-blur-md 
+           transition-all duration-300 hover:border-tealAccent/30 hover:shadow-[0_0_30px_-10px_rgba(20,184,166,0.2)];
+  }
+
+  .text-tealAccent {
+    color: #2dd4bf;
+  }
+
+  /* Smooth reveal animation */
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+@layer base {
+  body {
+    @apply bg-[#020617] antialiased overflow-x-hidden;
+    /* Subtle mesh background that moves slightly */
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(20, 184, 166, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.05) 0px, transparent 50%);
+  }
+}
+
+@layer components {
+  .sidebar-blend {
+    @apply sticky top-0 h-screen border-r border-white/5 bg-slate-950/20 backdrop-blur-3xl;
+    /* This creates the 'no-cutoff' look */
+    mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+  }
+}

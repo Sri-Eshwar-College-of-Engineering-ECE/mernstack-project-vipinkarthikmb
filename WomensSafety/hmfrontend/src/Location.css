@@ -1,0 +1,81 @@
+/* Location.css */
+.location-container {
+    display: flex;
+    min-height: 100vh; /* Ensure full viewport height */
+    background-color: #f8bbd0; /* Light pink background for consistency */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #e91e63; /* Pink sidebar */
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.sidebar-item.active {
+    background-color: #c2185b;
+}
+
+.sidebar-item:hover {
+    background-color: #d81b60;
+    transform: scale(1.05);
+}
+
+.logout-button {
+    margin-top: auto;
+    background-color: #c2185b; /* Adjusted to match the active state */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.location-header {
+    font-size: 2rem; /* Increased size for prominence */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.map-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.location-details {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .location-container {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+
+    .sidebar {
+        width: 100%; /* Full width sidebar on smaller screens */
+    }
+}

@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  ai-service:
+    build: ./ai-service
+    ports:
+      - "8000:8000"
+    command: python app.py
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      MONGO_URI: mongodb://mongo:27017/autoshield
+      JWT_SECRET: autoshield_secret_2024
+      AI_SERVICE_URL: http://ai-service:8000
+    depends_on:
+      - mongo
+      - ai-service
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: http://localhost:5000/api
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime / temporary files
+*.pid
+*.seed
+*.tmp
+
+# Coverage / reports
+coverage/
+.nyc_output/
+
+# Build output
+dist/
+build/

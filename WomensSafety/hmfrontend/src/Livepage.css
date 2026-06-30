@@ -1,0 +1,127 @@
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #e91e63;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.nav-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+/* Active state of the button */
+.nav-item.active .nav-button {
+  background-color: #c2185b;
+}
+
+/* Hover effect for buttons */
+.nav-button:hover {
+  background-color: #d81b60;
+  transform: scale(1.05);
+}
+
+.logout {
+  margin-top: auto;
+  width: 100%;
+  padding: 10px;
+  background-color: #c2185b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8bbd0;
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.live-feed-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.live-feed-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.camera-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.camera-feed {
+  width: 45%;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.camera-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.camera-view {
+  height: 250px; /* Increased height for the video container */
+  background-color: #ddd;
+  border-radius: 8px;
+  overflow: hidden; /* Ensures no overflow of video content */
+}
+
+.camera-view video {
+  width: 100%; /* Makes the video fill the container */
+  height: 100%; /* Ensures the video scales with the container height */
+  object-fit: cover; /* Ensures the video covers the container area without distortion */
+}

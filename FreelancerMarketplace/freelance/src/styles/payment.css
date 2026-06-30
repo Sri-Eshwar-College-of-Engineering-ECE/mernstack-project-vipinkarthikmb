@@ -1,0 +1,125 @@
+.payment-wrapper {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #fefefe, #e0f7fa);
+  font-family: 'Inter', sans-serif;
+}
+
+.payment-title {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: #1a237e;
+  font-weight: 800;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 0.6s ease forwards;
+  animation-fill-mode: both;
+}
+
+.payment-subtitle {
+  text-align: center;
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 0.6s ease forwards;
+  animation-fill-mode: both;
+  animation-delay: 0.2s;
+}
+
+.payment-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.payment-card {
+  width: 320px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.payment-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.payment-card h4 {
+  color: #2575fc;
+  margin-bottom: 12px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.payment-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+}
+
+.status-badge {
+  display: inline-block;
+  background: #43e97b;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.payment-page {
+  overflow-x: hidden;
+}
+
+.payment-wrapper {
+  min-height: 100vh;
+  padding: 100px 20px 40px; /* Top padding increased to avoid overlap with Navbar */
+  background: linear-gradient(135deg, #fefefe, #e0f7fa);
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+.status-msg {
+  text-align: center;
+  color: #444;
+  font-size: 16px;
+  margin: 20px 0;
+}
+
+.status-msg.error {
+  color: red;
+}

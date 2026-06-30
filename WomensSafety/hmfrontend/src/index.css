@@ -1,0 +1,74 @@
+/* Import a Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Using Inter font */
+  background-color: #f0f2f5; /* Light background color */
+  color: #333; /* Dark text color for better readability */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Container for Content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px; /* Add some padding for breathing room */
+}
+
+/* Navigation Bar */
+nav {
+  background: #428bca; /* Blue background color */
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+nav button {
+  background: transparent; /* Transparent background */
+  color: white; /* Text color matches nav background */
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 10px 15px;
+  border: 1px solid #428bca; /* Border color matches nav background */
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+nav button:hover {
+  background: #428bca; /* Button background on hover */
+  color: #f0f2f5; /* Text color on hover - light for contrast */
+}
+
+/* Footer */
+footer {
+  background: #222; /* Dark background color */
+  color: white;
+  padding: 15px;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+footer a {
+  color: #428bca; /* Link color matches nav background */
+  text-decoration: none;
+}

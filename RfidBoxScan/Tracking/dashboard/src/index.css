@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  #root {
+    width: 100%;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer;
+  }
+
+  .stat-card {
+    @apply bg-white rounded-lg shadow-md p-3 border border-gray-100 hover:shadow-lg transition-all duration-300;
+  }
+
+  .box-type-card {
+    @apply bg-white rounded-lg shadow-md p-4 border border-gray-100 hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer;
+  }
+
+  .trend-up {
+    @apply text-green-500;
+  }
+
+  .trend-down {
+    @apply text-red-500;
+  }
+
+  /* Responsive adjustments for full view */
+  @media (max-width: 1024px) {
+    .stat-card {
+      @apply p-3;
+    }
+
+    .box-type-card {
+      @apply p-4;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .stat-card {
+      @apply p-2;
+    }
+
+    .box-type-card {
+      @apply p-3;
+    }
+  }
+}

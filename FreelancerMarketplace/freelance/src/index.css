@@ -1,0 +1,17 @@
+/* Light mode styles (default) */
+.light-mode {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Example for navbar, buttons, etc */
+.dark-mode .navbar {
+  background-color: #1e1e1e;
+}
+

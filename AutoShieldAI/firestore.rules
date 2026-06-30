@@ -1,0 +1,96 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function role() {
+      return request.auth.token.role;
+    }
+
+    function isAdmin() {
+      return signedIn() && role() == 'admin';
+    }
+
+    function isOpsManager() {
+      return signedIn() && role() == 'ops_manager';
+    }
+
+    function isWorker() {
+      return signedIn() && (role() == 'worker' || role() == null);
+    }
+
+    function isOwner(userId) {
+      return signedIn() && request.auth.uid == userId;
+    }
+
+    function financialFieldsUntouched() {
+      return request.resource.data.payoutAmount == resource.data.payoutAmount
+        && request.resource.data.reserveAmount == resource.data.reserveAmount
+        && request.resource.data.payoutRef == resource.data.payoutRef;
+    }
+
+    function policyImmutableAfterActivation() {
+      return !(resource.data.status in ['active', 'expired', 'cancelled']);
+    }
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId) || isAdmin();
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /policies/{policyId} {
+      allow read: if isAdmin() || isOpsManager() || (isWorker() && resource.data.userId == request.auth.uid);
+      allow create: if isAdmin();
+      allow update: if isAdmin() && policyImmutableAfterActivation();
+      allow delete: if isAdmin();
+    }
+
+    match /claims/{claimId} {
+      allow read: if isAdmin() || isOpsManager() || (isWorker() && resource.data.userId == request.auth.uid);
+      allow create: if isAdmin() || isOpsManager();
+      allow update: if isAdmin() || isOpsManager();
+      allow delete: if isAdmin();
+    }
+
+    match /triggers/{triggerId} {
+      allow read: if isAdmin() || isOpsManager();
+      allow create: if isAdmin() || isOpsManager();
+      allow update, delete: if isAdmin() || isOpsManager();
+    }
+
+    match /fraud_logs/{fraudId} {
+      allow read: if isAdmin() || isOpsManager();
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /payouts/{payoutId} {
+      allow read: if isAdmin() || isOpsManager() || (isWorker() && resource.data.userId == request.auth.uid);
+      allow create, update, delete: if false;
+    }
+
+    match /audit_logs/{auditId} {
+      allow read: if isAdmin() || isOpsManager();
+      allow create, update, delete: if false;
+    }
+
+    match /fraud_aggregates/{docId} {
+      allow read: if isAdmin() || isOpsManager();
+      allow write: if false;
+    }
+
+    match /payout_reserves/{docId} {
+      allow read: if isAdmin() || isOpsManager();
+      allow write: if false;
+    }
+
+    match /system_health/{docId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+  }
+}

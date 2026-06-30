@@ -1,0 +1,151 @@
+/* Detection.css */
+.detection-container {
+    display: flex;
+    min-height: 100vh; /* Ensure full viewport height */
+    background-color: #f8bbd0; /* Light pink background for consistency */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #e91e63; /* Pink sidebar */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.sidebar-item.active {
+    background-color: #c2185b;
+}
+
+.logout-button {
+    margin-top: auto;
+    background-color: #c2185b; /* Adjusted to match the active state */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.detection-header {
+    font-size: 2rem; /* Increased size for prominence */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.video-upload-area {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.upload-box {
+    border: 2px dashed #ccc;
+    padding: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.upload-label {
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.detection-result {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.result-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.result-button.active {
+    opacity: 1;
+}
+
+.harassment {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.no-harassment {
+    background-color: #4caf50; /* Green */
+    color: white;
+}
+
+.accuracy-bars {
+    margin-bottom: 10px;
+}
+
+.accuracy-bar {
+    height: 20px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.harassment-bar {
+    background-color: #f44336;
+}
+
+.no-harassment-bar {
+    background-color: #4caf50;
+}
+
+.accuracy-labels {
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .detection-container {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+
+    .sidebar {
+        width: 100%; /* Full width sidebar on smaller screens */
+    }
+
+    .result-buttons {
+        flex-direction: column;
+    }
+
+    .result-button {
+        margin-bottom: 10px;
+    }
+}

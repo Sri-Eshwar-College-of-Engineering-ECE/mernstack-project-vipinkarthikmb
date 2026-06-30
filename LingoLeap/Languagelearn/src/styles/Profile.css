@@ -1,0 +1,28 @@
+.settings-container {
+  background: linear-gradient(to bottom right, #f8fafc, #e2e8f0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.setting select,
+.setting input {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.button-container button {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.button-container button:hover {
+  transform: scale(1.05);
+}
+
+/* Dark Mode Styles */
+body.dark {
+  background-color: #1a202c;
+  color: white;
+}
+

@@ -1,0 +1,9 @@
+hmfrontend/node_modules/
+hmbackend/node_modules/
+
+hmbackend/venv/
+
+hmfrontend/build/
+
+hmbackend/models/harrassment_detection_model.h5
+hmbackend/models/non_harassment_model.h5

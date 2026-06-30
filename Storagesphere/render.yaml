@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: storagesphere-ai
+    runtime: python
+    rootDir: aiservice
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+
+  - type: web
+    name: storagesphere-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: CONTACT_RECEIVER_EMAIL
+        value: frovitax@gmail.com
+      - key: AI_SERVICE_URL
+        value: https://storagesphere-ai.onrender.com
+
+  - type: web
+    name: storagesphere-frontend
+    runtime: static
+    rootDir: digitalcold
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://storagesphere-backend.onrender.com/api
